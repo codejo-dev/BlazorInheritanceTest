@@ -1,0 +1,22 @@
+﻿@page "/"
+
+<Card @ref="CardRef" Title="Card">
+    This is my card
+</Card>
+
+<CustomCard @ref="CustomCardRef" Title="CustomCard">
+    This is my custom card
+</CustomCard>
+
+<button @onclick="ChangeColor">Change Color</button>
+
+@code {
+    private Card? CardRef { get; set; }
+    private CustomCard? CustomCardRef { get; set; }
+
+    private void ChangeColor()
+    {
+        CardRef!.ChangeColor("#0FF");
+        CustomCardRef!.ChangeColor("#0FF");
+    }
+}

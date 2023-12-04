@@ -1,0 +1,16 @@
+﻿@inherits Card
+
+<Card @attributes="Attributes">
+    <hr /> @* customization *@
+    @ChildContent
+</Card>
+
+@code {
+    IReadOnlyDictionary<string, object> Attributes { get; set; }
+    
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        Attributes = parameters.ToDictionary();
+        return base.SetParametersAsync(parameters);
+    }
+}
